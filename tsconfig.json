@@ -1,0 +1,15 @@
+{
+	"extends": "@flowr/typescript/tsconfig.strict.json",
+	"compilerOptions": {
+		"types": ["node"]
+	},
+	"exclude": [
+		"**/vendor/**",
+		"**/node_modules/**",
+		"**/dist/**",
+		"**/build/**",
+		"**/fixtures/**",
+		"**/.fixtures/**",
+		"**/_fixtures/**"
+	]
+}

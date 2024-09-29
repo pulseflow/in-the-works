@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '.vscode/**'
+      - '**/*.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: 'build: ${{ matrix.os }} (node@lts/*)'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      matrix:
+        OS: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - name: disable git crlf
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: setup node@lts/*
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: setup ni
+        run: npm i -g @antfu/ni
+
+      - name: install dependencies
+        run: nci
+
+      - name: build packages
+        run: nr build
+
+    #   - name: test packages
+    #     run: nr test
