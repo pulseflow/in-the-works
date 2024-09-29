@@ -33,7 +33,7 @@
 		]
 	},
 	"devDependencies": {
-		"@flowr/eslint-config": "^4.4.0",
+		"@flowr/eslint-config": "^4.4.1",
 		"@flowr/typescript": "^4.4.0",
 		"@types/node": "^22.7.4",
 		"bumpp": "^9.6.1",
