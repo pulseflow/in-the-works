@@ -1,5 +1,10 @@
-# Created by https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,visualstudiocode,windows,linux
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,yarn,macos,visualstudiocode,windows,linux
+# Created by https://www.toptal.com/developers/gitignore/api/git,node,yarn,linux,macos,windows,visualstudiocode,astro
+# Edit at https://www.toptal.com/developers/gitignore?templates=git,node,yarn,linux,macos,windows,visualstudiocode,astro
+
+### Astro ###
+# Gitignore template for Astro projects
+# Ignore content collection generated files
+.astro
 
 ### Git ###
 # Created by git for backups. To disable backups in Git:
@@ -266,4 +271,4 @@ $RECYCLE.BIN/
 # and uncomment the following lines
 # .pnp.*
 
-# End of https://www.toptal.com/developers/gitignore/api/git,node,yarn,macos,visualstudiocode,windows,linux
+# End of https://www.toptal.com/developers/gitignore/api/git,node,yarn,linux,macos,windows,visualstudiocode,astro
